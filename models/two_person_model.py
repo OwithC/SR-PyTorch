@@ -17,12 +17,7 @@ class resnet(nn.Module):
         self.fc1 = nn.Linear(1024, 512)
         self.fc2 = nn.Linear(512, 256)
         self.fc3 = nn.Linear(256, self.num_classes)
-
-        # # ResNet 101
-        # self.fc1 = nn.Linear(4096, 2048)
-        # self.fc2 = nn.Linear(2048, 1024)
-        # self.fc3 = nn.Linear(1024, self.num_classes)
-
+        
     def forward(self, x1, x2):
         x1 = self.features(x1)
         x2 = self.features(x2)
