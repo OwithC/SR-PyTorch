@@ -39,8 +39,8 @@ if __name__ == '__main__':
     train_datasets = PISCDataset('/PATH/PISC/image/data/preprocessed/train/', train_list)
     test_datasets = PISCDataset('/PATH/PISC/image/data/preprocessed/test/', test_list)
 
-    train_loader = DataLoader(train_datasets, batch_size=32, shuffle=True)
-    test_loader = DataLoader(test_datasets, batch_size=32, shuffle=False)
+    train_loader = DataLoader(train_datasets, batch_size=64, shuffle=True)
+    test_loader = DataLoader(test_datasets, batch_size=64, shuffle=False)
 
     model = resnet()
 
