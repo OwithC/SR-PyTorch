@@ -88,6 +88,7 @@ if __name__ == '__main__':
     for j in range(int(num_epochs / save_epoch)):
         num_model = save_epoch * (j + 1)
 
+        ########### Modify the checkpoint directory path ###########
         save_file = os.path.join('./checkpoint/', str(num_model) + '.pth')
 
         ############# You can change the model. ###########
