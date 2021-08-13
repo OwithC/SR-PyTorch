@@ -65,6 +65,6 @@ final release : 2021-08-06
 
 ## Member
 
-강보경 </br>
+강보경 추가 </br>
 박찬 <dkssudgkdl9@naver.com></br>
 
