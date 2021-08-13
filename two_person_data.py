@@ -15,8 +15,8 @@ class PISCDataset(torch.utils.data.Dataset):
         self.img_idx = -1
         self.item = []
 
-        # 전체 relation 얻기
-        # 경로 수정 필요
+        ########## Path modification required ##########
+        # Get Full Relation
         with open('/PATH/PISC/relationship.json') as j:
             self.relationship = json.load(j)
 
