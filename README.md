@@ -37,7 +37,10 @@
 3. two_person_data.py : 
 4. two_person_main.py : 
 
-## Resilt 
+## Training
+
+
+## Result 
 
 ![image](https://user-images.githubusercontent.com/60590737/129307005-08b2c109-dfdd-4a49-91f7-72d31193c70d.png)
 
