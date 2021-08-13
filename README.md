@@ -11,7 +11,6 @@
 - Python 3.8
 - numpy
 - cv2
-- GPU
 - Yolov5
 
 ## Dataset 
