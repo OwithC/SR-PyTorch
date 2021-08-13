@@ -1,6 +1,6 @@
 # SR-PyTorch
 
-팀 OwithC - "Obession with Coding" 코딩에 대한 강박(강보경,박찬) **Social Relation** 를 소개합니다.</br>+
+팀 OwithC - "Obession with Coding" 코딩에 대한 강박(강보경,박찬) **Social Relation** 를 소개합니다.</br>
 
 ![image](https://user-images.githubusercontent.com/60590737/129307229-1abcd312-609c-44d2-8e76-92580cd05f86.png)
 
