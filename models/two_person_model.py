@@ -13,22 +13,26 @@ class resnet(nn.Module):
         # class : friends, family, couple, professional, commercial, no_relation
         self.num_classes = 6
 
-        # ResNet18
-        self.fc1 = nn.Linear(1024, 512)
-        self.fc2 = nn.Linear(512, 256)
-        self.fc3 = nn.Linear(256, self.num_classes)
+        self.fc = nn.Sequential(
+            nn.Linear(1024, 512, bias=True),
+            nn.ReLU(inplace=True),
+            nn.Dropout(p=0.5, inplace=False),
+            nn.Linear(512, 256, bias=True),
+            nn.ReLU(inplace=True),
+            nn.Dropout(p=0.5, inplace=False),
+            nn.Linear(256, self.num_classes, bias=True)
+        )
         
     def forward(self, x1, x2):
         x1 = self.features(x1)
         x2 = self.features(x2)
 
+        x1 = x1.view(x1.shape[0], -1)
+        x2 = x2.view(x2.shape[0], -1)
+        
         x = torch.cat((x1, x2), dim=1)
 
-        x = x.view(x.shape[0], -1)
-
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
+        x = self.fc(x)
 
         return x
     
