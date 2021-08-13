@@ -8,7 +8,7 @@ import os
 import json
 from tqdm import tqdm
 
-from models.two_person_model import resnet
+from models.two_person_model import resnet, vgg
 from two_person_data import PISCDataset
 
 
@@ -34,6 +34,7 @@ if __name__ == '__main__':
     cudnn.enabled = True
     cudnn.benchmark = True
 
+    # Import Data List
     train_list, test_list = get_splitList()
 
     train_datasets = PISCDataset('/PATH/PISC/image/data/preprocessed/train/', train_list)
@@ -42,6 +43,7 @@ if __name__ == '__main__':
     train_loader = DataLoader(train_datasets, batch_size=64, shuffle=True)
     test_loader = DataLoader(test_datasets, batch_size=64, shuffle=False)
 
+    ############# You can change the model. ###########
     model = resnet()
 
     # Using Multiple GPU
@@ -88,6 +90,7 @@ if __name__ == '__main__':
 
         save_file = os.path.join('./checkpoint/', str(num_model) + '.pth')
 
+        ############# You can change the model. ###########
         model = resnet()
         model = model.to(device)
 
