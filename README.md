@@ -15,8 +15,7 @@
 - Yolov5
 
 ## Dataset 
-> 1) [PISC Dataset Download 바로가기](https://zenodo.org/record/1059155#.YRX_VHX7Q1g)
-> 2) 크롭데이터셋 추가
+> [PISC Dataset Download 바로가기](https://zenodo.org/record/1059155#.YRX_VHX7Q1g)
 
 ## How to install
 
@@ -34,13 +33,26 @@
 
 ## Documentation
 
-1. crop.py : 데이터셋 내의 이미지를 두 사람의 영역으로 crop
-2. two_person_model.py : 추가
-3. two_person_data.py :  추가
-4. two_person_main.py :  추가
+1. crop.py
+  ```
+  - 데이터셋 내의 이미지를 두 사람의 영역으로 crop
+  - 코드를 실행하기 전에 Train, Test 로 데이터셋 나누는 작업 필요
+  - annotation_image_info.json 파일 필요
+  - 데이터셋, 주석 파일 경로 수정
+  ```
+2. two_person_model.py : ResNet, VGG 모델
+3. two_person_data.py : relationship.json 주석 파일 필요
+4. two_person_main.py
+```
+- Trian, Test로 나눈 데이터의 id 리스트를 저장하고 있는 파일 필요
+- 데이터셋, 데이터 id 리스트 파일 경로 수정 필요
+- checkpoint 디렉토리 생성 후 경로 수정 필요
+```
 
 ## Training
-훈련코드 입력 추가
+```shell
+python two_person_main.py
+```
 
 ## Result 
 
@@ -50,7 +62,9 @@
 > ![image](https://user-images.githubusercontent.com/60590737/129310382-f74464c4-e85e-4514-ab1e-4d3a60e826af.png)
 
 ### 2) 두 사람 영역
-> ![image](https://user-images.githubusercontent.com/60590737/129307005-08b2c109-dfdd-4a49-91f7-72d31193c70d.png)
+> ![image](https://user-images.githubusercontent.com/76933244/129312278-4b94e438-8731-4947-b064-21cbb1f89e45.png)
+> 
+> ![image](https://user-images.githubusercontent.com/76933244/129312231-65caf57a-7506-4bd5-8172-73b90bad7004.png)
 
 ### 3) 결론 
 ```
@@ -59,12 +73,12 @@
 ```
 
 ### TODO
-final release : 2021-08-06
+final release : 2021-08-13
 
 <hr>
 
 ## Member
 
-강보경 추가 </br>
+강보경 <mint48579@gmail.com></br>
 박찬 <dkssudgkdl9@naver.com></br>
 
