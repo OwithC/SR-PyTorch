@@ -68,8 +68,9 @@ python two_person_main.py
 > ![image](https://user-images.githubusercontent.com/60590737/129310382-f74464c4-e85e-4514-ab1e-4d3a60e826af.png)
 
 ### 2) 두 사람 영역
+> 1. ResNet
 > ![image](https://user-images.githubusercontent.com/76933244/129312278-4b94e438-8731-4947-b064-21cbb1f89e45.png)
-> 
+> 2. VGG
 > ![image](https://user-images.githubusercontent.com/76933244/129312231-65caf57a-7506-4bd5-8172-73b90bad7004.png)
 
 ### 3) 결론 
