@@ -40,8 +40,14 @@
   - annotation_image_info.json 파일 필요
   - 데이터셋, 주석 파일 경로 수정
   ```
-2. two_person_model.py : ResNet, VGG 모델
-3. two_person_data.py : relationship.json 주석 파일 필요
+2. two_person_model.py
+```
+ResNet, VGG 모델
+```
+3. two_person_data.py
+```
+relationship.json 주석 파일 필요
+```
 4. two_person_main.py
 ```
 - Trian, Test로 나눈 데이터의 id 리스트를 저장하고 있는 파일 필요
