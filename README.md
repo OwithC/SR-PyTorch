@@ -7,7 +7,7 @@
 이 프로젝트는 **사진 내의 두 사람 영역을 인식하고** 학습된 데이터를 기반하여 두 사람의 관계를 예측하는 프로그램입니다.<br/> 
 
 ## The technologies used in this project
-- Pytorch 0.8.0
+- Pytorch 1.9.0
 - Python 3.8
 - numpy
 - cv2
