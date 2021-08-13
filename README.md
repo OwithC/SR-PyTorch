@@ -46,11 +46,11 @@
 
 ### 1) 이미지 전체
 > ![image](https://user-images.githubusercontent.com/60590737/129310229-0ed8c0c4-d0e7-45e2-b900-b056dd54fa94.png)
-> ![image](https://user-images.githubusercontent.com/60590737/129310272-d34989a6-2e24-49c6-845c-3c9848964f7a.png)
+>
 > ![image](https://user-images.githubusercontent.com/60590737/129310382-f74464c4-e85e-4514-ab1e-4d3a60e826af.png)
 
 ### 2) 두 사람 영역
-![image](https://user-images.githubusercontent.com/60590737/129307005-08b2c109-dfdd-4a49-91f7-72d31193c70d.png)
+> ![image](https://user-images.githubusercontent.com/60590737/129307005-08b2c109-dfdd-4a49-91f7-72d31193c70d.png)
 
 ### 3) 결론 
 ```
