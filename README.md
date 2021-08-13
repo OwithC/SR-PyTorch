@@ -19,6 +19,7 @@
 
 ## How to install
 ```> pytorch / CUDA Toolkit / Anaconda3 / cuDNN 8.1.0 설치```
+
 </br> pycharm 에서 프로젝트 실행
 
 ## Train the model 
