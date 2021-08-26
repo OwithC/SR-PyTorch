@@ -1,10 +1,7 @@
-import os.path
-
 from PIL import Image
 import json
-import glob
-import os
 from tqdm import tqdm
+from pathlib import Path
 
 
 def get_bbox(id):
@@ -16,40 +13,48 @@ def get_bbox(id):
             return info['bbox']
 
 
-def get_file(img_path, types):
-    file_dic = {}
-    for type in types:
-        file_dic[type] = glob.glob(os.path.join(img_path, type) + '/*.jpg')
-
-    return file_dic
-
-
 if __name__ == '__main__':
-    img_path = '/PISC/IMAGE/PATH/'
-    types = ['train', 'test']
+    data_path = Path('./image').absolute()
+    save_dir = data_path.parent / 'crop'
 
-    files = get_file(img_path, types)
+    if not save_dir.is_dir():
+        Path.mkdir(save_dir)
 
-    save_dir = os.path.join(img_path, 'preprocessed')
-    if not os.path.exists(save_dir):
-        os.makedirs(save_dir)
+    classes = ['friends', 'family', 'couple', 'professional', 'commercial', 'no_relation']
+    c_idx = [0] * len(classes)
+    for c in classes:
+        class_dir = save_dir / c
+        if not class_dir.is_dir():
+            Path.mkdir(class_dir)
 
-    for i, file in tqdm(enumerate(files.values())):
-        type_dir = os.path.join(save_dir, types[i])
-        if not os.path.exists(type_dir):
-            os.makedirs(type_dir)
+    with open('/PATH/PISC/relationship.json') as j:
+        relationship = json.load(j)
 
-        for img_path in file:
-            id = img_path.split('/')[-1].split('.')[0]
-            img_dir = os.path.join(type_dir, id)
-            if not os.path.exists(img_dir):
-                os.makedirs(img_dir)
+    relationship = sorted(relationship.items())
 
-            bboxes = get_bbox(int(id))
+    for i, r in enumerate(tqdm(relationship)):
+        id, relation = r
+        img_path = data_path / f'{id.zfill(5)}.jpg'
 
-            img = Image.open(img_path)
-            for j, bbox in enumerate(bboxes):
-                save_path = os.path.join(img_dir, str(j)) + '.png'
-                x, y, w, h = bbox[0], bbox[1], bbox[2] - bbox[0], bbox[3] - bbox[1]
-                crop_img = img.crop((x, y, x + w, y + h))
-                crop_img.save(save_path)
+        if not img_path.is_file():
+            continue
+
+        person = []
+        img = Image.open(img_path)
+        bboxes = get_bbox(int(id))
+        for bbox in bboxes:
+            x, y, w, h = bbox[0], bbox[1], bbox[2] - bbox[0], bbox[3] - bbox[1]
+            person.append(img.crop((x, y, x + w, y + h)))
+
+        for pair, label in relation.items():
+            a, b = pair.split()
+            a, b = int(a), int(b)
+            person1, person2 = person[a-1], person[b-1]
+            c_idx[label-1] += 1
+            save_path = save_dir / classes[label-1] / str(f'%05d' % c_idx[label-1])
+
+            if not save_path.is_dir():
+                Path.mkdir(save_path)
+
+            person1.save(save_path / '1.png')
+            person2.save(save_path / '2.png')
