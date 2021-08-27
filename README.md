@@ -33,9 +33,9 @@
 
 ## Documentation
 
-1. crop.py
+1. ./data/crop.py
 
-2. two_person_model.py
+2. ./model/two_person_model.py
 
 3. two_person_data.py
 
