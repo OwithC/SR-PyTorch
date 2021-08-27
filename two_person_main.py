@@ -72,7 +72,6 @@ if __name__ == '__main__':
 
     model.train()
     for epoch in tqdm(range(num_epochs)):
-        running_loss = 0.0
         for i, datas in enumerate(train_loader):
             x1, x2, y = datas
             x1 = x1.to(device)
@@ -88,11 +87,7 @@ if __name__ == '__main__':
             optimizer.step()
 
             running_loss += loss.item()
-        else:
-            print('Epoch {:d}/{:d} | Batch {:d}/{:d} | Loss {:f}'.format(epoch + 1, num_epochs,
-                                                             i + 1, len(train_loader),
-                                                             running_loss / 100))
-
+            
         if epoch % save_epoch == save_epoch - 1:
             save_file = os.path.join('./checkpoint/', str(epoch + 1) + '.pth')
             torch.save(model.state_dict(), save_file)
