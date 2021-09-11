@@ -85,8 +85,6 @@ if __name__ == '__main__':
 
             loss.backward()
             optimizer.step()
-
-            running_loss += loss.item()
             
         if epoch % save_epoch == save_epoch - 1:
             save_file = os.path.join('./checkpoint/', str(epoch + 1) + '.pth')
