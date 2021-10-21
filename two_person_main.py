@@ -12,7 +12,7 @@ from two_person_data import PISCDataset
 
 
 if __name__ == '__main__':
-    num_epochs = 30
+    num_epochs = 100
     save_epoch = 10
 
     cudnn.enabled = True
@@ -39,7 +39,7 @@ if __name__ == '__main__':
         x1, x2, y = datas
         test_cnt[y] += 1
     else:
-        print(f'Test Data : {sum(test_cnt)}/* : {test_cnt}')
+        print(f'Test Data : {sum(test_cnt)} : {test_cnt}')
 
     num_samples = sum(train_cnt)
 
